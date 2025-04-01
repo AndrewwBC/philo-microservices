@@ -1,5 +1,6 @@
 package com.filo.users.controller;
 
+import com.filo.users.dtos.UserDTO;
 import com.filo.users.model.UserModel;
 import com.filo.users.service.UserService;
 import jakarta.validation.Valid;
