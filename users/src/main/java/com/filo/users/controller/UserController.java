@@ -20,7 +20,7 @@ public class UserController {
     public ResponseEntity<UserModel> createUser(@RequestBody @Valid UserDTO userDTO){
         return ResponseEntity.status(HttpStatus.OK).body(userService.createUser(userDTO));
     }
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<UserModel> updateUser(@RequestBody @Valid UserDTO userDTO, @RequestParam String id){
         System.out.println(id);
         return ResponseEntity.status(HttpStatus.OK).body(userService.updateUser(userDTO, id));

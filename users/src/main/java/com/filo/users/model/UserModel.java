@@ -52,7 +52,6 @@ public class UserModel {
 
     public UserModel() {
     }
-
     public static UserModel fromDataCreateUser(UserDTO userDTO, String cryptPass, UserRole userRole) {
         return new UserModel(
                 userDTO.username(),
