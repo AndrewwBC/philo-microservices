@@ -2,24 +2,20 @@ package com.filo.posts.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity(name = "Posts")
 @Table(name = "posts")
 @EqualsAndHashCode(of = "id")
-@Setter
-@Getter
 @AllArgsConstructor
 public class PostModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    private String id;
 
     @NotBlank
     private String content;
@@ -39,7 +35,7 @@ public class PostModel {
     }
     public PostModel() {}
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
@@ -57,6 +53,26 @@ public class PostModel {
 
     public String getUserId() {
         return userId;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public void setClaps(Integer claps) {
+        this.claps = claps;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     @Override

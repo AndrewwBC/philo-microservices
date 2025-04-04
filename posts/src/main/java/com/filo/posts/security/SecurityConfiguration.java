@@ -16,6 +16,7 @@ public class SecurityConfiguration {
         return http.csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/api/v1/posts").permitAll()).build();
+                        .requestMatchers(HttpMethod.POST, "/api/v1/posts").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/api/v1/posts/*").permitAll()).build();
     }
 }
