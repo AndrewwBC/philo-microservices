@@ -15,7 +15,7 @@ import java.util.Objects;
 public class UserService {
 
     @Value("${ADM_MAIL}")
-    private String admMail;
+    private String ADM_MAIL;
     private final UserRepository userRepository;
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -36,7 +36,7 @@ public class UserService {
     }
 
     private UserRole handleUserRole(String email){
-        UserRole userRole = Objects.equals(email, admMail) ? UserRole.ADMIN : UserRole.USER;
+        UserRole userRole = Objects.equals(email, this.ADM_MAIL) ? UserRole.ADMIN : UserRole.USER;
         return userRole;
     }
 
