@@ -19,6 +19,7 @@ public class SecurityConfiguration {
                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "api/v1/users").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "api/v1/users/*").permitAll()
                         .anyRequest().denyAll()
                 ).httpBasic(Customizer.withDefaults()).build();
     }

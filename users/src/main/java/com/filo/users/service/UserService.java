@@ -23,14 +23,11 @@ public class UserService {
     }
 
     public UserModel createUser(UserDTO userDTO) {
-
         UserRole userRole = this.handleUserRole(userDTO.email());
-        System.out.println(userRole);
-
         String cryptPass = new BCryptPasswordEncoder().encode(userDTO.password());
-
         UserModel user = UserModel.fromDataCreateUser(userDTO, cryptPass, userRole);
-        return userRepository.save(user);
+        userRepository.save(user);
+        return user;
     }
 
     public UserModel updateUser(UserDTO userDTO, String id) {
@@ -40,7 +37,6 @@ public class UserService {
                 new NoSuchElementException("Usuário não encontrado"));
 
         user.updateFromUserDTO(userDTO, userRole);
-
         return this.userRepository.save(user);
     }
 

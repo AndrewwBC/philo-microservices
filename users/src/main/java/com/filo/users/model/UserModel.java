@@ -62,4 +62,17 @@ public class UserModel {
                 null
         );
     }
+
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "id=" + id +
+                ", fullname='" + fullname + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                ", postId='" + postId + '\'' +
+                '}';
+    }
 }

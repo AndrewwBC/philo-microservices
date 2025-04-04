@@ -15,13 +15,12 @@ public class UserController {
     public UserController(UserService userService){
         this.userService = userService;
     }
-
     @PostMapping
     public ResponseEntity<UserModel> createUser(@RequestBody @Valid UserDTO userDTO){
-        return ResponseEntity.status(HttpStatus.OK).body(userService.createUser(userDTO));
+        return ResponseEntity.ok(userService.createUser(userDTO));
     }
     @PutMapping("/{id}")
-    public ResponseEntity<UserModel> updateUser(@RequestBody @Valid UserDTO userDTO, @RequestParam String id){
+    public ResponseEntity<UserModel> updateUser(@RequestBody @Valid UserDTO userDTO, @PathVariable String id){
         System.out.println(id);
         return ResponseEntity.status(HttpStatus.OK).body(userService.updateUser(userDTO, id));
     }
