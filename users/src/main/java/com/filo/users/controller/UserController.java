@@ -17,7 +17,7 @@ public class UserController {
     }
     @PostMapping
     public ResponseEntity<UserModel> createUser(@RequestBody @Valid UserDTO userDTO){
-        return ResponseEntity.ok(userService.createUser(userDTO));
+        return ResponseEntity.status(HttpStatus.OK).body(userService.createUser(userDTO));
     }
     @PutMapping("/{id}")
     public ResponseEntity<UserModel> updateUser(@RequestBody @Valid UserDTO userDTO, @PathVariable String id){

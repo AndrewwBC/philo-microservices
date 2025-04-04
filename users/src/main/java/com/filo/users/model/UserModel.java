@@ -9,7 +9,6 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.UUID;
 
 @Entity
 @Table(name = "TB_USERS")
@@ -18,7 +17,7 @@ import java.util.UUID;
 public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    private String id;
     @NotBlank
     private String fullname;
     @NotBlank
@@ -50,12 +49,40 @@ public class UserModel {
         this.role = userRole;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public String getPostId() {
+        return postId;
+    }
+
     public UserModel() {
     }
     public static UserModel fromDataCreateUser(UserDTO userDTO, String cryptPass, UserRole userRole) {
         return new UserModel(
-                userDTO.username(),
                 userDTO.fullname(),
+                userDTO.username(),
                 userDTO.email(),
                 cryptPass,
                 userRole,
