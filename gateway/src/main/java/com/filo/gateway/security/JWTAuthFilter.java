@@ -23,7 +23,7 @@ public class JWTAuthFilter implements GatewayFilter {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         String path = exchange.getRequest().getURI().getPath();
-        if (path.contains("/users/signin") || path.startsWith("/users/register")) {
+        if (path.contains("/auth/signin") || path.startsWith("/users/register")) {
             return chain.filter(exchange);
         }
 
